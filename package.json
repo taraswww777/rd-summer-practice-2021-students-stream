@@ -1,0 +1,23 @@
+{
+  "name": "rd-summer-practice-2021-students-stream",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taraswww777/rd-summer-practice-2021-students-stream.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/taraswww777/rd-summer-practice-2021-students-stream/issues"
+  },
+  "homepage": "https://github.com/taraswww777/rd-summer-practice-2021-students-stream#readme",
+  "dependencies": {
+    "font-awesome": "4.7.0"
+  }
+}
