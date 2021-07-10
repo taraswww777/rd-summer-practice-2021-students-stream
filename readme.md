@@ -15,3 +15,4 @@
 |---|---|---|---|
 |team lead|Тарас|taraswww777|taraswww777|
 |dev ops developer |Даниил|quterma|quterma|
+|developer|Никита|KlimchukNik|KlimchukNikita|
