@@ -1,0 +1,9 @@
+html,body{
+    background: red;
+}
+
+.block-bg{
+    background: #000;
+    color: white;
+    border: 1px solid white;
+}
