@@ -13,5 +13,5 @@
 ## Состав команды
 |Роли|Имя|дискорд|git|
 |---|---|---|---|
-| |Тарас|taraswww777|taraswww777|
-| |Даниил|quterma|quterma|
+|team lead|Тарас|taraswww777|taraswww777|
+|dev ops developer |Даниил|quterma|quterma|
