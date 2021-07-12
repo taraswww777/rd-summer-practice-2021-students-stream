@@ -2,15 +2,57 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="app.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="../node_modules/font-awesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="app.css"/>
     <!--  TODO: Раскомментировать при начале работы с сервером -->
-<!--    <script src="modernizr.js"></script>-->
-<!--    <script src="/js/jquery.js"></script>-->
-<!--    <script src="/js/jquery.signalR.js"></script>-->
-<!--    <script src="/js/gameApi.js"></script>-->
+    <!--    <script src="modernizr.js"></script>-->
+    <!--    <script src="/js/jquery.js"></script>-->
+    <!--    <script src="/js/jquery.signalR.js"></script>-->
+    <!--    <script src="/js/gameApi.js"></script>-->
     <title>Игра - Полицейские и Мошенники</title>
 </head>
 <body>
+<div class="container">
+    <div class="row">
+        <div class="col-12 block-bg">Column</div>
+    </div>
+    <div class="row">
+        <div class="col-3 block-bg">
+            <div class="card">
+                <div class="card-header">Название команды</div>
+                <div class="card-body">
+                    <p>lives <span>[10]</span> <i class="fas fa-heartbeat"></i></p>
+                    <p>coins <span>[10]</span> <i class="fas fa-coins"></i></p>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Player1</li>
+                        <li class="list-group-item">Player2</li>
+                        <li class="list-group-item">Player3</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 block-bg">
+            <canvas></canvas>
+            <p>Здесь будет карта</p></div>
+        <div class="col-3 block-bg">team 2</div>
+    </div>
+    <div class="row">
+        <div class="col-12 block-bg">
+            <button type="button" class="btn btn-secondary">К списку игр</button>
+            <button type="button" class="btn btn-success">Начать</button>
+            <button type="button" class="btn btn-info">Подключиться к случайной игре</button>
+            <button type="button" class="btn btn-primary">Подключиться к полиции</button>
+            <button type="button" class="btn btn-primary">Подключиться к мошенникам</button>
+            <button type="button" class="btn btn-danger">Покинуть игру</button>
+            <button type="button" class="btn btn-warning">Пауза</button>
+            <button type="button" class="btn btn-danger">Прервать игру</button>
+        </div>
+    </div>
+</div>
 <!-- TODO: Task 0. Построить вёрстку приложения по макету используя для сетки bootstrap -->
 <div class="hidden">
     <img id="img_heart"
@@ -52,23 +94,15 @@ eiIvPgo8L2c+CjwvZz4KPC9nPgo8L3N2Zz4="/>
 iMHB4IiB5PSIwcHgiIHdpZHRoPSIyNXB4IiBoZWlnaHQ9IjI1cHgiIHZpZXdCb3g9IjAgMCAyNS
 AyNSI+CjxjaXJjbGUgY3g9IjEyLjUiIGN5PSIxMi41IiByPSI3IiBmaWxsPSIjRkZENzAwIiBzd
 HJva2U9IiNEQUE1MjAiIHN0cm9rZVdpZHRoPSIxIiAvPgo8L3N2Zz4="/>
-    <img id="img_police"
-         src="data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeD0
-iMHB4IiB5PSIwcHgiIHdpZHRoPSIyNXB4IiBoZWlnaHQ9IjI1cHgiIHZpZXdCb3g9IjAgMCAyNS
-AyNSI+Cjxwb2x5Z29uIHBvaW50cz0iMywyMiAxMi41LDMgMjIsMjIiIGZpbGw9Im5vbmUiIHN0c
-m9rZT0iZ3JlZW4iIHN0cm9rZVdpZHRoPSIyIiAvPgo8L3N2Zz4="/>
-    <img id="img_police_self"
+    <img id=img_police" src="https://img.icons8.com/emoji/50/000000/man-police-officer.png"/>
+    <img id="img_policeid_self"
          src="data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeD0
 iMHB4IiB5PSIwcHgiIHdpZHRoPSIyNXB4IiBoZWlnaHQ9IjI1cHgiIHZpZXdCb3g9IjAgMCAyNS
 AyNSI+Cjxwb2x5Z29uIHBvaW50cz0iMywyMiAxMi41LDMgMjIsMjIiIGZpbGw9Im5vbmUiIHN0c
 m9rZT0iZ3JlZW4iIHN0cm9rZVdpZHRoPSIyIiAvPgo8cG9seWdvbiBwb2ludHM9IjYsMjAgMTIu
 NSw3IDE5LDIwIiBmaWxsPSJncmVlbiIgc3Ryb2tlPSJncmVlbiIgc3Ryb2tlV2lkdGg9IjIiIC8
 +Cjwvc3ZnPg=="/>
-    <img id="img_thief"
-         src="data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeD0
-iMHB4IiB5PSIwcHgiIHdpZHRoPSIyNXB4IiBoZWlnaHQ9IjI1cHgiIHZpZXdCb3g9IjAgMCAyNS
-AyNSI+Cjxwb2x5Z29uIHBvaW50cz0iMywxMi41IDEyLjUsMyAyMiwxMi41IDEyLjUsMjIiIGZpb
-Gw9Im5vbmUiIHN0cm9rZT0iYmx1ZSIgc3Ryb2tlV2lkdGg9IjIiIC8+Cjwvc3ZnPg=="/>
+    <img id="img_thief" src="https://img.icons8.com/ios-filled/50/000000/bandit.png"/>
     <img id="img_thief_self"
          src="data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeD0
 iMHB4IiB5PSIwcHgiIHdpZHRoPSIyNXB4IiBoZWlnaHQ9IjI1cHgiIHZpZXdCb3g9IjAgMCAyNS
@@ -99,7 +133,6 @@ go8L3N2Zz4="/>
 <!--        new app.game.GameView($("#game"), $("#loading"), $("#loadError"), gameState);-->
 <!--        gameState.request();-->
 <!--    })();-->
-
 <!--</script>-->
 </body>
 </html>
